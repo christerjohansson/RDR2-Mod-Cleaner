@@ -6,7 +6,7 @@ A simple utility to temporarily disable or restore mods in your Red Dead Redempt
 
 - **Disable mods:** Moves all files/folders (except those you specify) into a `mods_disabled` folder.
 - **Enable mods:** Restores all files/folders from `mods_disabled` back to the main folder.
-- Supports a config file (`list_of_file_to_keep.txt`) to specify files/folders to keep.
+- Supports a config file (`index.md`) to specify files/folders to keep.
 - Works as a Windows executable or as a Python script.
 
 ---
@@ -17,7 +17,7 @@ A simple utility to temporarily disable or restore mods in your Red Dead Redempt
 
 1. **Download or build the executable** (see below).
 2. **Place the EXE** in your RDR2 game folder.
-3. **(Optional)**: Create a `list_of_file_to_keep.txt` in the same folder, listing files/folders (one per line) you want to keep. (This repo also have a vanilla list available with all files from first installation)
+3. **(Optional)**: Create a `index.md` in the same folder, listing files/folders (one per line) you want to keep. (This repo also have a vanilla list available with all files from first installation)
 4. **Run the EXE** by double-clicking it.
 5. **Choose an option:**
     - Enter `1` to disable mods (move mods to `mods_disabled`)
