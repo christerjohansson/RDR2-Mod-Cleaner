@@ -1,16 +1,24 @@
 import os
 import shutil
 import sys
+import ctypes
+
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
 
 
 def get_to_keep(root_dir):
     # 1. Config file
-    config_path = os.path.join(root_dir, 'list_of_file_to_keep.txt')
+    config_path = os.path.join(root_dir, 'index.md')
     if os.path.isfile(config_path):
         with open(config_path, 'r', encoding='utf-8') as f:
             keep = [line.strip() for line in f if line.strip()]
             if keep:
-                print(f"Using config file list_of_file_to_keep.txt: {keep}")
+                print(f"Using configurated index file: {keep}")
                 return keep
 
     # 2. Command-line argument
@@ -61,6 +69,11 @@ def enable_mods(root_dir):
             print(f"Could not restore {item}: {e}")
 
 def main():
+    if os.name == 'nt' and not is_admin():
+        print("This program must be run as an administrator.")
+        input("Press Enter to exit...")
+        sys.exit()
+
     # Use the folder where the EXE is located
     if getattr(sys, 'frozen', False):
         root_dir = os.path.dirname(sys.executable)

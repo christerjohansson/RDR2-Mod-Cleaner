@@ -46,7 +46,7 @@ A simple utility to temporarily disable or restore mods in your Red Dead Redempt
 3. Open a terminal in the folder containing `rdr2cleaner.py`.
 4. Run:
     ```
-    pyinstaller --onefile rdr2cleaner.py
+    pyinstaller --onefile --console --clean --icon=cowboy.ico --name "RDR2ModsCleaner" rdr2cleaner.py
     ```
 5. The executable will be created in the `dist` folder. Move it to your RDR2 game folder.
 
