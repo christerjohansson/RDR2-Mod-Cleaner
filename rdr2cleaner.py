@@ -18,20 +18,17 @@ def get_to_keep(root_dir):
         with open(config_path, 'r', encoding='utf-8') as f:
             keep = [line.strip() for line in f if line.strip()]
             if keep:
-                print(f"Using configurated index file: {keep}")
                 return keep
 
     # 2. Command-line argument
     if len(sys.argv) > 1:
         keep = sys.argv[1:]
-        print(f"Using files/folders from command line: {keep}")
         return keep
 
     # 3. Interactive input
     print("Enter comma-separated names of files/folders to keep:")
     user_input = input("To keep: ")
     keep = [x.strip() for x in user_input.split(',') if x.strip()]
-    print(f"Using user input: {keep}")
     return keep
 
 def disable_mods(root_dir):
@@ -91,6 +88,13 @@ def main():
         enable_mods(root_dir)
     else:
         print("Invalid choice. Exiting.")
+
+    print("\n-----------------------------------------------------")
+    print("Licensed under the MIT License. See LICENSE for details.")
+    print("No Copyright (c) 2025")
+    print("-----------------------------------------------------")
+    input("Press Enter to exit...")
+
 
 if __name__ == "__main__":
     main()
